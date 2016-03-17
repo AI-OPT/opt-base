@@ -79,7 +79,7 @@ public class PageInfo<T> implements Serializable {
      * @author gucl
      */
     public int getStartRowIndex() {
-        return (this.getPageNo() - 1) * this.getPageSize() + 1;
+        return (this.getPageNo() - 1) * this.getPageSize();
     }
 
     /**
