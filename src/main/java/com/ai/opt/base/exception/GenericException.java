@@ -2,7 +2,7 @@ package com.ai.opt.base.exception;
 
 import java.io.Serializable;
 
-public class GenericException extends Exception implements Serializable {
+public class GenericException extends RuntimeException implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
