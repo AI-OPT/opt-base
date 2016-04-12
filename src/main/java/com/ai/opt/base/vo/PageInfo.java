@@ -12,7 +12,7 @@ import java.util.List;
  *            Copyright (c) 2015 asiainfo.com <br>
  * @author gucl
  */
-public class PageInfo<T> extends BaseResponse implements Serializable {
+public class PageInfo<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
