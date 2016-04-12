@@ -10,7 +10,7 @@ import java.util.List;
  * 
  * @author mayt
  */
-public class PageInfoHBase<T> implements Serializable {
+public class HBasePager<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
