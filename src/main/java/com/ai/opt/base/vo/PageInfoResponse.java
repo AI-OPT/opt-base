@@ -12,7 +12,7 @@ import java.util.List;
  * Copyright (c) 2015 asiainfo.com <br>
  * @author liutong5
  */
-public class PageInfoOfResponse<T> extends BaseResponse {
+public class PageInfoResponse<T> extends BaseResponse {
     private static final long serialVersionUID = 1L;
 
     /**
