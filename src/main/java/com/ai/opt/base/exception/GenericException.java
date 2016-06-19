@@ -35,6 +35,10 @@ public class GenericException extends RuntimeException implements Serializable {
     public GenericException(Exception oriEx) {
         super(oriEx);
     }
+    
+    public GenericException(Throwable oriEx) {
+        super(oriEx);
+    }
 
     /**
      * 构造器.<br>
@@ -44,6 +48,10 @@ public class GenericException extends RuntimeException implements Serializable {
      * @ServiceMethod
      */
     public GenericException(String message, Exception oriEx) {
+        super(message, oriEx);
+    }
+    
+    public GenericException(String message, Throwable oriEx) {
         super(message, oriEx);
     }
 

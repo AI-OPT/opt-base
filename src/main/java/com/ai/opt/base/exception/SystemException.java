@@ -41,6 +41,10 @@ public class SystemException extends GenericException {
     public SystemException(Exception oriEx) {
         super(oriEx);
     }
+    
+    public SystemException(Throwable oriEx) {
+        super(oriEx);
+    }
 
     /**
      * 系统异常构造器.<br>
@@ -52,6 +56,10 @@ public class SystemException extends GenericException {
      * @ServiceMethod
      */
     public SystemException(String message, Exception oriEx) {
+        super(message, oriEx);
+        this.errorMessage = message;
+    }
+    public SystemException(String message, Throwable oriEx) {
         super(message, oriEx);
         this.errorMessage = message;
     }
