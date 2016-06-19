@@ -39,6 +39,9 @@ public class PageInfo<T> implements Serializable {
      * 总页数
      */
     private int pageCount;
+    
+    private int startRowIndex;
+    private int endRowIndex;
 
     public int getCount() {
         return count;
@@ -79,7 +82,8 @@ public class PageInfo<T> implements Serializable {
      * @author gucl
      */
     public int getStartRowIndex() {
-        return (this.getPageNo() - 1) * this.getPageSize();
+    	startRowIndex=(this.getPageNo() - 1) * this.getPageSize();
+        return startRowIndex;
     }
 
     /**
@@ -89,7 +93,8 @@ public class PageInfo<T> implements Serializable {
      * @author gucl
      */
     public int getEndRowIndex() {
-        return this.getPageNo() * this.getPageSize();
+    	endRowIndex=this.getPageNo() * this.getPageSize();
+        return endRowIndex;
     }
 
     /**

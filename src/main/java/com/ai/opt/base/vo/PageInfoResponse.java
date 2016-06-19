@@ -39,6 +39,9 @@ public class PageInfoResponse<T> extends BaseResponse {
      * 总页数
      */
     private int pageCount;
+    
+    private int startRowIndex;
+    private int endRowIndex;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -79,22 +82,24 @@ public class PageInfoResponse<T> extends BaseResponse {
 
     /**
      * 获取开始行
-     *
+     * 
      * @return
      * @author gucl
      */
     public int getStartRowIndex() {
-        return (this.getPageNo() - 1) * this.getPageSize();
+    	startRowIndex=(this.getPageNo() - 1) * this.getPageSize();
+        return startRowIndex;
     }
 
     /**
      * 获取结束行
-     *
+     * 
      * @return
      * @author gucl
      */
     public int getEndRowIndex() {
-        return this.getPageNo() * this.getPageSize();
+    	endRowIndex=this.getPageNo() * this.getPageSize();
+        return endRowIndex;
     }
 
     /**
