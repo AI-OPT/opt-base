@@ -22,11 +22,21 @@ public class ResponseHeader implements Serializable {
     private String resultCode;
 
     private String resultMessage;
+    
+    //用于异常时，存放堆栈信息
+    private Object info;
 
     public ResponseHeader(boolean isSuccess, String resultCode, String resultMessage) {
         this.isSuccess = isSuccess;
         this.resultCode = resultCode;
         this.resultMessage = resultMessage;
+    }
+    
+    public ResponseHeader(boolean isSuccess, String resultCode, String resultMessage,Object info) {
+    	this.isSuccess = isSuccess;
+    	this.resultCode = resultCode;
+    	this.resultMessage = resultMessage;
+    	this.info=info;
     }
 
     public ResponseHeader() {
@@ -59,6 +69,14 @@ public class ResponseHeader implements Serializable {
 
 	public void setSuccess(boolean isSuccess) {
 		this.isSuccess = isSuccess;
+	}
+
+	public Object getInfo() {
+		return info;
+	}
+
+	public void setInfo(Object info) {
+		this.info = info;
 	}
     
     
