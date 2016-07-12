@@ -62,6 +62,9 @@ public class ResponseHeader implements Serializable {
     public boolean isSuccess() {
         return isSuccess;
     }
+    public boolean getIsSuccess() {
+    	return isSuccess;
+    }
 
     public void setIsSuccess(boolean isSuccess) {
         this.isSuccess = isSuccess;
