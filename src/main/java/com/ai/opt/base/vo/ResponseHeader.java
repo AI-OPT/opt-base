@@ -24,7 +24,7 @@ public class ResponseHeader implements Serializable {
     private String resultMessage;
     
     //用于异常时，存放堆栈信息
-    private Object info=new Object();
+    private Object info="";
 
     public ResponseHeader(boolean isSuccess, String resultCode, String resultMessage) {
         this.isSuccess = isSuccess;
