@@ -1,19 +1,19 @@
 package com.ai.opt.base.vo;
 
-import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
 
 /**
- * 服务返回基本信息<br>
+ * 服务返回list基本信息<br>
  * Date: 2016年2月26日 <br>
  * Copyright (c) 2016 asiainfo.com <br>
  * 
  * @author mayt
  */
-public class BaseListResponse<T> implements Serializable {
+public class BaseListResponse<T> extends BaseResponse {
     private static final long serialVersionUID = 1L;
     
-    private List<T> result;
+    private List<T> result = Collections.emptyList();
 
     public List<T> getResult() {
 		return result;
@@ -23,16 +23,4 @@ public class BaseListResponse<T> implements Serializable {
 		this.result = result;
 	}
 
-	/**
-     * 服务返回报文头信息
-     */
-    private ResponseHeader responseHeader;
-
-    public ResponseHeader getResponseHeader() {
-        return responseHeader;
-    }
-
-    public void setResponseHeader(ResponseHeader responseHeader) {
-        this.responseHeader = responseHeader;
-    }
 }
