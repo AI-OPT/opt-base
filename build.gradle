@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
 group 'com.ai.opt'
-version '1.0.2-SNAPSHOT'
+version '1.0.1-SNAPSHOT'
 sourceCompatibility = 1.7
 compileJava.dependsOn clean
 publish.dependsOn build
@@ -25,10 +25,7 @@ ext{
 repositories {
     maven{ url "http://10.1.228.199:18081/nexus/content/groups/public/"  }
 }
-dependencies {
-    compile "com.ai:ipaas-i18n-spring:${ipaasI18nVersion}"  
-    compile "com.ai:ipaas-common:${ipaasCommonVersion}"    
-}
+
  sourceSets {
     main {
         java {
@@ -70,20 +67,7 @@ publishing {
 	        classifier "sources"
 	      }
 	      pom.withXml {
-				asNode().children().last() + { 
-                    delegate.dependencies {   
-                        delegate.dependency { 
-                            delegate.groupId("com.ai")
-                            delegate.artifactId("ipaas-common") 
-                            delegate.version("${ipaasCommonVersion}") 
-                        }                         
-                        delegate.dependency { 
-                            delegate.groupId("com.ai") 
-                            delegate.artifactId("ipaas-i18n-spring") 
-                            delegate.version("${ipaasI18nVersion}") 
-                        } 
-                    } 
-                }// end of asNode
+				
             }//end of pom.withXml
 	    }//end of publishJar
     }//publications
