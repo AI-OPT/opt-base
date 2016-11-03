@@ -9,7 +9,10 @@ compileJava.dependsOn clean
 publish.dependsOn build
 
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
-
+configurations.all { 
+	    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+	    resolutionStrategy.cacheDynamicVersionsFor 0, 'seconds'
+ 	}
 ext{
 	ipaasI18nVersion="0.3.1";
     ipaasCommonVersion="0.3.1";
@@ -22,6 +25,7 @@ ext{
     builtBy="gradle 2.2"
 }
 dependencies {
+	compile "org.springframework:spring-webmvc:4.1.7.RELEASE"
     compile "com.ai:ipaas-i18n-spring:${ipaasI18nVersion}"  
     compile "com.ai:ipaas-common:${ipaasCommonVersion}"    
 }
@@ -60,32 +64,31 @@ task sourceJar(type: Jar) {
 
 publishing {
     publications {
-        
-        publishJar(MavenPublication) {
-	      from components.java
-	      groupId group
-          artifactId moduleName
-          version version
-	      artifact(sourceJar) {
-	        classifier "sources"
-	      }
-	      pom.withXml {
-				asNode().children().last() + { 
-                    delegate.dependencies {   
-                        delegate.dependency { 
+        publishing.publications.create("${moduleName}", MavenPublication) {
+            groupId group
+            artifactId moduleName
+            version version
+            artifact jar
+            artifact(sourceJar) {
+	        	classifier "sources"
+	      	}
+            pom.withXml {
+                asNode().children().last() + {
+                    delegate.dependencies {
+                        delegate.dependency {
                             delegate.groupId("com.ai")
-                            delegate.artifactId("ipaas-common") 
-                            delegate.version("${ipaasCommonVersion}") 
-                        }                         
-                        delegate.dependency { 
-                            delegate.groupId("com.ai") 
-                            delegate.artifactId("ipaas-i18n-spring") 
-                            delegate.version("${ipaasI18nVersion}") 
-                        } 
-                    } 
-                }// end of asNode
-            }//end of pom.withXml
-	    }//end of publishJar
+                            delegate.artifactId("ipaas-i18n-spring")
+                            delegate.version("${ipaasI18nVersion}")
+                        }
+                        delegate.dependency {
+                            delegate.groupId("com.ai")
+                            delegate.artifactId("ipaas-common")
+                            delegate.version("${ipaasCommonVersion}")
+                        }
+                    }
+                }
+            }
+        }
     }//publications
     repositories {
         maven {
