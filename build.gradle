@@ -26,8 +26,12 @@ ext{
 }
 dependencies {
 	compile "org.springframework:spring-webmvc:4.1.7.RELEASE"
-    compile "com.ai:ipaas-i18n-spring:${ipaasI18nVersion}"  
-    compile "com.ai:ipaas-common:${ipaasCommonVersion}"    
+    compile ("com.ai:ipaas-i18n-spring:${ipaasI18nVersion}") {
+    	exclude group: 'com.google.guava', module: 'guava'
+    } 
+    compile ("com.ai:ipaas-common:${ipaasCommonVersion}") {
+    	exclude group: 'com.google.guava', module: 'guava'
+     }  
 }
 repositories {
     maven{ url "http://10.1.228.199:18081/nexus/content/groups/public/"  }
@@ -79,11 +83,23 @@ publishing {
                             delegate.groupId("com.ai")
                             delegate.artifactId("ipaas-i18n-spring")
                             delegate.version("${ipaasI18nVersion}")
+                            delegate.exclusions{
+                                delegate.exclusion{
+                                    delegate.groupId("com.google.guava")
+                                    delegate.artifactId("guava")
+                                }
+                            }
                         }
                         delegate.dependency {
                             delegate.groupId("com.ai")
                             delegate.artifactId("ipaas-common")
                             delegate.version("${ipaasCommonVersion}")
+                            delegate.exclusions{
+                                delegate.exclusion{
+                                    delegate.groupId("com.google.guava")
+                                    delegate.artifactId("guava")
+                                }
+                            }
                         }
                     }
                 }
