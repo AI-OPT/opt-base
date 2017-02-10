@@ -2,6 +2,13 @@ package com.ai.opt.base.exception;
 
 import java.io.Serializable;
 
+/**
+ * RPCSystemException封装异常类
+ * Date: 2017年2月9日 <br>
+ * Copyright (c) 2017 asiainfo.com <br>
+ * 
+ * @author
+ */
 public class RPCSystemException extends Exception implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -2,12 +2,25 @@ package com.ai.opt.base.exception;
 
 import java.io.Serializable;
 
+/**
+ * GenericException封装异常类
+ * Date: 2017年2月9日 <br>
+ * Copyright (c) 2017 asiainfo.com <br>
+ * 
+ * @author
+ */
 public class GenericException extends RuntimeException implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * 错误码
+     */
     String errorCode;
 
+    /**
+     * 异常信息
+     */
     String errorMessage;
 
     public GenericException() {

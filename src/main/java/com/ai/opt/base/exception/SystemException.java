@@ -1,5 +1,12 @@
 package com.ai.opt.base.exception;
 
+/**
+ * 系统异常
+ * Date: 2017年2月9日 <br>
+ * Copyright (c) 2017 asiainfo.com <br>
+ * 
+ * @author
+ */
 public class SystemException extends GenericException {
 
     private static final long serialVersionUID = 1L;
