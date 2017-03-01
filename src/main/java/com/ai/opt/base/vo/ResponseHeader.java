@@ -18,9 +18,9 @@ public class ResponseHeader implements Serializable {
      * 是否业务成功
      */
     private boolean isSuccess;
-
+    //返回编码
     private String resultCode;
-
+    //返回信息
     private String resultMessage;
     
     //用于异常时，存放堆栈信息
